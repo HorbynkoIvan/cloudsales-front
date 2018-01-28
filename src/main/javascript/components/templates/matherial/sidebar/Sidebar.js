@@ -1,9 +1,9 @@
-let React = require("react");
-let NavigationMenu = require("./NavigationMenu.react");
-let UserTail = require("./UserTail.react");
+import React, {Component} from 'react';
+import NavigationMenu from "./NavigationMenu";
+import UserTail from "./UserTail";
 
-module.exports = React.createClass({
-    render: function () {
+class Sidebar extends Component {
+    render() {
         return (
             <aside className="sidebar">
                 <div className="scrollbar-inner">
@@ -13,4 +13,6 @@ module.exports = React.createClass({
             </aside>
         );
     }
-});
+};
+
+export default Sidebar;

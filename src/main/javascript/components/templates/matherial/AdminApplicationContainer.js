@@ -1,8 +1,8 @@
-let React = require("react");
-let Sidebar = require("./sidebar/Sidebar.react")
+import React, {Component} from 'react';
+import Sidebar from "./sidebar/Sidebar";
 
-module.exports = React.createClass({
-    render: function () {
+class AdminApplicationContainer extends Component {
+    render() {
         return (
             <main className="main">
                 <div className="page-loader">
@@ -428,4 +428,6 @@ module.exports = React.createClass({
             </main>
         );
     }
-});
+};
+
+export default AdminApplicationContainer;

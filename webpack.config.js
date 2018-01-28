@@ -1,18 +1,20 @@
-var path = require('path');
+const path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 /* necessary for creating separate css file*/
-/*var HtmlWebpackPlugin = require('html-webpack-plugin');
-/!* necessary for creating html file*!/
-var CleanWebpackPlugin = require('clean-webpack-plugin');*/
+
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+/* necessary for creating html file*/
+
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var extractPlugin = new ExtractTextPlugin({
     filename: 'main.css'
 });
 
 module.exports = {
-   /* for single entry point*/
-    entry: './src/javascript/AdminApplication.js',
-     output: {
+    /* for single entry point*/
+    entry: './src/main/javascript/index.js',
+    output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         publicPath: '/dist'
@@ -37,14 +39,10 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
                 use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['es2015']
-                        }
-                    }
+                    'babel-loader'
                 ]
             },
             {
@@ -72,16 +70,12 @@ module.exports = {
             }
         ]
     },
-   /* plugins: [
+    plugins: [
         extractPlugin,
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html'
         }),
-        new HtmlWebpackPlugin({
-            filename: 'users.html',
-            template: 'src/users.html'
-        }),
         new CleanWebpackPlugin(['dist'])
-    ]*/
+    ]
 };

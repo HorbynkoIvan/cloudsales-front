@@ -1,7 +1,7 @@
-let React = require("react");
+import React,{Component} from "react";
 
-module.exports = React.createClass({
-    render: function () {
+class NavigationMenu extends Component {
+    render() {
         return (
             <ul className="navigation">
                 <li>
@@ -16,4 +16,6 @@ module.exports = React.createClass({
             </ul>
         );
     }
-});
+};
+
+export default NavigationMenu;
